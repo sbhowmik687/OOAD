@@ -5,13 +5,15 @@ public class Cab {
 	private String licensePlateNo;
 	private float ratePerMile;
 	private String model;
+	private CabType cabType;
 
-	public Cab(String vehicleType, String licensePlateNo, float ratePerMile,String model) {
+	public Cab(String vehicleType, String licensePlateNo, float ratePerMile,String model,CabType cabType) {
 		super();
 		this.vehicleType = vehicleType;
 		this.licensePlateNo = licensePlateNo;
 		this.ratePerMile = ratePerMile;
 		this.model=model;
+		this.cabType=cabType;
 	}
 
 	public String getVehicleType() {
@@ -44,5 +46,13 @@ public class Cab {
 
 	public void setModel(String model) {
 		this.model = model;
+	}
+
+	public CabType getCabType() {
+		return cabType;
+	}
+
+	public void setCabType(CabType cabType) {
+		this.cabType = cabType;
 	}
 }

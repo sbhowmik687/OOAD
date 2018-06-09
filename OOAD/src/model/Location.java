@@ -2,28 +2,25 @@ package model;
 
 public class Location {
 
-	private String pickUpLocation;
-	private String dropOffLocation;
-
-	public Location(String pickUpLocation, String dropOffLocation) {
+	private Place pickUpLocation;
+	private Place dropOffLocation;
+	
+	public Location(Place pickUpLocation, Place dropOffLocation) {
 		super();
 		this.pickUpLocation = pickUpLocation;
 		this.dropOffLocation = dropOffLocation;
 	}
-
-	public String getPickUpLocation() {
+	public Place getPickUpLocation() {
 		return pickUpLocation;
 	}
-
-	public void setPickUpLocation(String pickUpLocation) {
+	public void setPickUpLocation(Place pickUpLocation) {
 		this.pickUpLocation = pickUpLocation;
 	}
-
-	public String getDropOffLocation() {
+	public Place getDropOffLocation() {
 		return dropOffLocation;
 	}
-
-	public void setDropOffLocation(String dropOffLocation) {
+	public void setDropOffLocation(Place dropOffLocation) {
 		this.dropOffLocation = dropOffLocation;
 	}
+
 }

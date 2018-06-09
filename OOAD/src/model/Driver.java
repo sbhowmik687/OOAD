@@ -1,20 +1,14 @@
 package model;
 
-public class Driver {
+public class Driver extends Person {
 	
-	private String firstName;
-	private String middleName;
-	private String lastName;
 	private String driverId;
 	private boolean availabilty;
 	private float milesDriven;
 	private Cab cab;
 	
 	public Driver(String firstNm, String middleNm, String lastNm, String driverId, boolean avail, float miles, Cab cab){
-		super();
-		this.firstName = firstNm;
-		this.middleName = middleNm;
-		this.lastName = lastNm;
+		super(firstNm,middleNm,lastNm);
 		this.driverId = driverId;
 		this.availabilty = avail;
 		this.milesDriven = miles; 

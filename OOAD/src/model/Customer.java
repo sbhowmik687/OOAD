@@ -1,6 +1,6 @@
 package model;
 
-public class Customer {
+public class Customer extends Person {
 
 	private String firstName;
 	private String middleName;
@@ -11,10 +11,7 @@ public class Customer {
 
 	public Customer(String firstName, String middleName, String lastName, String netId, String password,
 			String phoneNo) {
-		super();
-		this.firstName = firstName;
-		this.middleName = middleName;
-		this.lastName = lastName;
+		super(firstName,middleName,lastName);
 		this.netId = netId;
 		this.password = password;
 		this.phoneNo = phoneNo;
