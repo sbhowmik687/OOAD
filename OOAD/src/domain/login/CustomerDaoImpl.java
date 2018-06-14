@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import db.DbManager;
+import model.Customer;
 
 
 
@@ -19,10 +20,12 @@ public class CustomerDaoImpl implements CustomerDao {
 		int status = 0;
 		try{
 			conn = db.getConnection();
-			ps =conn.prepareStatement("insert into customer values(?,?,?)");
-			ps.setString(1, c.getUsername());
-			ps.setString(2, c.getPassword());
-			ps.setString(3, c.getName());
+			ps =conn.prepareStatement("insert into customer values(?,?,?,?,?,?)");
+			ps.setString(1, c.getFirstName());
+			ps.setString(2, c.getMiddleName());
+			ps.setString(3, c.getLastName());
+			ps.setString(4, c.getPassword());
+			ps.setString(5, c.getPhoneNo());
 			status = ps.executeUpdate();
 			conn.close();
 		}catch(Exception e){
@@ -42,9 +45,9 @@ public class CustomerDaoImpl implements CustomerDao {
 
 			ResultSet rs = ps.executeQuery();
 			while(rs.next()){
-				c.setUsername(rs.getString(1));
+				c.setNetId(rs.getString(1));
 				c.setPassword(rs.getString(2));
-				c.setName(rs.getString(3));
+				c.setFirstName(rs.getString(3));
 			}
 			conn.close();
 		}catch(Exception e){

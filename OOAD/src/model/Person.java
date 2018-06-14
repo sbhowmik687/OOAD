@@ -10,4 +10,8 @@ public class Person {
 		super();
 	}
 
+	public Person() {
+		// TODO Auto-generated constructor stub
+	}
+
 }

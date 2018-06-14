@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.login.Customer;
 import domain.login.CustomerDao;
 import domain.login.CustomerDaoImpl;
 import domain.login.Login;
@@ -31,14 +30,17 @@ public class LoginController extends HttpServlet {
 		String pass = request.getParameter("password");
 		String submitType = request.getParameter("submit");
 		Login login = new Login(username, pass);
-		Customer c = customerDao.validateCustomer(login);
+		model.Customer c = customerDao.validateCustomer(login);
 		
-		if(submitType.equals("login") && c!=null && c.getName()!=null){
-			request.setAttribute("message", "Hello "+c.getName());
+		if(submitType.equals("login") && c!=null && c.getFirstName()!=null){
+			request.setAttribute("message", "Hello "+c.getFirstName());
 			request.getRequestDispatcher("welcome.jsp").forward(request, response);
 		}else if(submitType.equals("register")){
-			c.setName(request.getParameter("name"));
-			c.setUsername(request.getParameter("username"));
+			c.setFirstName(request.getParameter("firstName"));
+			c.setMiddleName(request.getParameter("middleName"));
+			c.setLastName(request.getParameter("lastName"));
+			c.setPhoneNo(request.getParameter("phoneNo"));
+			c.setNetId(request.getParameter("netId"));
 			c.setPassword(request.getParameter("password"));
 			customerDao.register(c);
 			request.setAttribute("successMessage", "Registration done, please login!");

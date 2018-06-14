@@ -11,7 +11,7 @@ public interface MyDB {
 
 	String USER="root";
 	String PASS="admin";
-	String CONN_URL="jdbc:mysql://localhost:3306/coursedatabase";
+	String CONN_URL="jdbc:mysql://localhost:3306/cometcab";
 	
 	
 }

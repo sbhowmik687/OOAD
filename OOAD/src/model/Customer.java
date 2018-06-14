@@ -17,6 +17,11 @@ public class Customer extends Person {
 		this.phoneNo = phoneNo;
 	}
 
+	public Customer() {
+		// TODO Auto-generated constructor stub
+		super();
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}

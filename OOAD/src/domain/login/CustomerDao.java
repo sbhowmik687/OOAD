@@ -1,4 +1,7 @@
 package domain.login;
+
+import model.Customer;
+
 /**
  * 
  * @author mehra
