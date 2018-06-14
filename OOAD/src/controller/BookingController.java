@@ -26,12 +26,14 @@ public class BookingController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		float fare;
 		BookingService bookingService = new BookingServiceImpl();
+		CabType cabType = CabType.valueOf(request.getParameter("cabType"));
 		Location location = new Location(Place.valueOf(request.getParameter("pickUpLocation")),
 				Place.valueOf(request.getParameter("pickUpLocation")));
-		CabType cabType = CabType.valueOf(request.getParameter("pickUpLocation"));
-		bookingService.estimateFare(location, cabType);
+		fare = bookingService.estimateFare(location, cabType);
+		request.setAttribute("estimatedFare", fare);
+		request.getRequestDispatcher("welcome.jsp").forward(request, response);
 	}
 
 }

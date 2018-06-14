@@ -1,15 +1,16 @@
 package service;
+import domain.login.BookingDAO;
+import domain.login.BookingDAOImpl;
 import model.CabType;
-import model.Driver;
 import model.Location;
-import model.Trip;
 
 public class BookingServiceImpl implements BookingService{
 
+	BookingDAO bookingDao = new BookingDAOImpl();
 	@Override
 	public float estimateFare(Location location, CabType cabType) {
-		// TODO Auto-generated method stub
-		return 0;
+		int distance=bookingDao.getDistance(location);
+		return (distance*cabType.getMultiplier());
 	}
 
 	@Override
